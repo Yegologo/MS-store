@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito - MC Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="cart-container">
+            <div class="section-header">
+                <h2>Tu Carrito</h2>
+                <p>Revisa y modifica los productos en tu carrito</p>
+            </div>
+
+            <div class="cart-content">
+                <div class="cart-items">
+                    <!-- Los items del carrito se cargarán dinámicamente aquí -->
+                </div>
+
+                <div class="cart-summary">
+                    <h3>Resumen del Pedido</h3>
+                    <div class="summary-item">
+                        <span>Subtotal</span>
+                        <span class="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>IVA (16%)</span>
+                        <span class="tax">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Envío</span>
+                        <span class="shipping">Gratis</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total</span>
+                        <span class="total">$0.00</span>
+                    </div>
+                    <button class="checkout-btn">Proceder al Pago</button>
+                    <a href="../index.html#productos" class="continue-shopping">Continuar Comprando</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html> 

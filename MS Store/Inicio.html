@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MC Store - Tu Tienda de Confianza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="img/logo-mcstore.png" alt="MC Store Logo">
+                <h1 class="logo-text">MC Store</h1>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-container">
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="pages/catalog.html">Productos</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div class="cart-user-container">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Buscar productos...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="user-actions">
+                        <a href="pages/login.html" class="login-btn"><i class="fas fa-user"></i> Iniciar Sesión</a>
+                        <a href="pages/admin/login.html" class="admin-btn"><i class="fas fa-shield-alt"></i> Admin</a>
+                        <a href="pages/cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Tu Tienda de Repostería</h1>
+            <p class="hero-subtitle">Descubre ingredientes y herramientas  para tus creaciones</p>
+            <div class="hero-features">
+                <div class="feature">
+                    <i class="fas fa-truck"></i>
+                    <span>Envío Gratis</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Calidad Garantizada</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <span>Soporte 24/7</span>
+                </div>
+            </div>
+            <a href="#productos" class="cta-button">Explorar Productos</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products" id="productos">
+        <div class="section-header">
+            <h2>Productos Destacados</h2>
+            <p>Descubre nuestra selección de ingredientes premium para tus creaciones</p>
+        </div>
+        <div class="category-filter">
+            <button class="active" data-category="todos">Todos</button>
+            <button data-category="harinas">Harinas</button>
+            <button data-category="chocolates">Chocolates</button>
+            <button data-category="decoracion">Decoración</button>
+            <button data-category="moldes">Moldes</button>
+        </div>
+        <div class="products-grid" id="productsContainer">
+            <!-- Products will be loaded dynamically -->
+        </div>
+        <div class="view-more-container">
+            <a href="pages/catalog.html" class="view-more-btn">Ver más productos</a>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="about-us" id="nosotros">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Sobre Nosotros</h2>
+                <p class="subtitle">Más de 10 años siendo tu aliado en repostería</p>
+                <p class="description">En MC Store, nos apasiona proporcionar los mejores ingredientes y herramientas para tus creaciones culinarias. Desde 2013, hemos estado sirviendo a la comunidad de reposteros con productos de la más alta calidad.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-medal"></i>
+                        <h3>Calidad Premium</h3>
+                        <p>Seleccionamos cuidadosamente cada producto para garantizar la mejor calidad.</p>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-heart"></i>
+                        <h3>Pasión por el Servicio</h3>
+                        <p>Nuestro equipo está comprometido con tu satisfacción y éxito.</p>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Productos Frescos</h3>
+                        <p>Garantizamos la frescura y calidad de todos nuestros ingredientes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <span class="number">10k+</span>
+                    <span class="label">Clientes Satisfechos</span>
+                </div>
+                <div class="stat">
+                    <span class="number">1000+</span>
+                    <span class="label">Productos</span>
+                </div>
+                <div class="stat">
+                    <span class="number">24/7</span>
+                    <span class="label">Soporte</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="section-header">
+            <h2>Contáctanos</h2>
+            <p>Estamos aquí para ayudarte</p>
+        </div>
+        <div class="contact-container">
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto</label>
+                    <select id="subject" required>
+                        <option value="">Selecciona un asunto</option>
+                        <option value="consulta">Consulta General</option>
+                        <option value="pedido">Información de Pedido</option>
+                        <option value="reclamo">Reclamo</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+            <div class="contact-info">
+                <div class="info-card">
+                    <div class="info-header">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Ubicación</h3>
+                    </div>
+                    <p>Av. Principal 123</p>
+                    <p>Ciudad, País</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-header">
+                        <i class="fas fa-phone"></i>
+                        <h3>Teléfono</h3>
+                    </div>
+                    <p>+123 456 789</p>
+                    <p>Lun - Sáb: 9:00 - 18:00</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-header">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                    </div>
+                    <p>contacto@mcstore.com</p>
+                    <p>soporte@mcstore.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="js/catalog.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Load footer
+        fetch('pages/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+</body>
+</html>

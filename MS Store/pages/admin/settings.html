@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Panel de Administración - MC Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../../img/logo-mcstore.png" alt="MC Store Logo" class="admin-logo">
+            <h1>MC Store</h1>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html">
+                        <i class="fas fa-box"></i>
+                        Productos
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        Pedidos
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="fas fa-users"></i>
+                        Usuarios
+                    </a>
+                </li>
+                <li>
+                    <a href="categories.html">
+                        <i class="fas fa-tags"></i>
+                        Categorías
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        Configuración
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../../Inicio.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Top Header -->
+        <header class="admin-header">
+            <div class="header-search">
+                <input type="text" placeholder="Buscar en configuración...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </button>
+                <div class="admin-profile">
+                    <img src="../../img/admin-avatar.png" alt="Admin">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Settings Content -->
+        <div class="dashboard-content">
+            <div class="section-header">
+                <h2>Configuración del Sistema</h2>
+            </div>
+
+            <!-- Settings Tabs -->
+            <div class="settings-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="general">General</button>
+                    <button class="tab-btn" data-tab="store">Tienda</button>
+                    <button class="tab-btn" data-tab="payment">Pagos</button>
+                    <button class="tab-btn" data-tab="shipping">Envíos</button>
+                    <button class="tab-btn" data-tab="email">Email</button>
+                    <button class="tab-btn" data-tab="security">Seguridad</button>
+                </div>
+
+                <!-- General Settings -->
+                <div class="tab-content active" id="general">
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Nombre del Sitio</label>
+                            <input type="text" value="MC Store">
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción del Sitio</label>
+                            <textarea rows="3">Tienda especializada en productos para repostería</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Logo del Sitio</label>
+                            <input type="file" accept="image/*">
+                            <div class="current-logo">
+                                <img src="../../img/logo-mcstore.png" alt="Current Logo">
+                                <span>Logo actual</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Favicon</label>
+                            <input type="file" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label>Moneda</label>
+                            <select>
+                                <option value="ARS" selected>Peso Argentino (ARS)</option>
+                                <option value="USD">Dólar (USD)</option>
+                                <option value="EUR">Euro (EUR)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Zona Horaria</label>
+                            <select>
+                                <option value="America/Argentina/Buenos_Aires" selected>Buenos Aires (GMT-3)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+
+                <!-- Store Settings -->
+                <div class="tab-content" id="store">
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Dirección de la Tienda</label>
+                            <input type="text" value="Calle Falsa 123">
+                        </div>
+                        <div class="form-group">
+                            <label>Ciudad</label>
+                            <input type="text" value="Buenos Aires">
+                        </div>
+                        <div class="form-group">
+                            <label>Provincia</label>
+                            <input type="text" value="Buenos Aires">
+                        </div>
+                        <div class="form-group">
+                            <label>Código Postal</label>
+                            <input type="text" value="1234">
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono</label>
+                            <input type="tel" value="+54 9 11 1234-5678">
+                        </div>
+                        <div class="form-group">
+                            <label>Email de Contacto</label>
+                            <input type="email" value="contacto@mcstore.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Horario de Atención</label>
+                            <textarea rows="3">Lunes a Viernes: 9:00 - 18:00
+Sábados: 10:00 - 14:00</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+
+                <!-- Payment Settings -->
+                <div class="tab-content" id="payment">
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Métodos de Pago</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Mercado Pago
+                                </label>
+                                <label>
+                                    <input type="checkbox">
+                                    Transferencia Bancaria
+                                </label>
+                                <label>
+                                    <input type="checkbox">
+                                    Efectivo
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Mercado Pago Access Token</label>
+                            <input type="password" value="TEST-123456789">
+                        </div>
+                        <div class="form-group">
+                            <label>Cuenta Bancaria</label>
+                            <input type="text" value="Banco Nación - 123456789">
+                        </div>
+                        <div class="form-group">
+                            <label>CBU</label>
+                            <input type="text" value="1234567890123456789012">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+
+                <!-- Shipping Settings -->
+                <div class="tab-content" id="shipping">
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Métodos de Envío</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Correo Argentino
+                                </label>
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Envío Express
+                                </label>
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Retiro en Local
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Costo de Envío Estándar</label>
+                            <input type="number" value="500">
+                        </div>
+                        <div class="form-group">
+                            <label>Costo de Envío Express</label>
+                            <input type="number" value="800">
+                        </div>
+                        <div class="form-group">
+                            <label>Zonas de Envío</label>
+                            <textarea rows="3">CABA y GBA
+Resto del país</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+
+                <!-- Email Settings -->
+                <div class="tab-content" id="email">
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>SMTP Host</label>
+                            <input type="text" value="smtp.mcstore.com">
+                        </div>
+                        <div class="form-group">
+                            <label>SMTP Puerto</label>
+                            <input type="number" value="587">
+                        </div>
+                        <div class="form-group">
+                            <label>SMTP Usuario</label>
+                            <input type="text" value="noreply@mcstore.com">
+                        </div>
+                        <div class="form-group">
+                            <label>SMTP Contraseña</label>
+                            <input type="password" value="********">
+                        </div>
+                        <div class="form-group">
+                            <label>Email de Notificaciones</label>
+                            <input type="email" value="notificaciones@mcstore.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Plantillas de Email</label>
+                            <select>
+                                <option value="default">Predeterminada</option>
+                                <option value="custom">Personalizada</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+
+                <!-- Security Settings -->
+                <div class="tab-content" id="security">
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Cambiar Contraseña</label>
+                            <input type="password" placeholder="Nueva contraseña">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirmar Contraseña</label>
+                            <input type="password" placeholder="Confirmar nueva contraseña">
+                        </div>
+                        <div class="form-group">
+                            <label>Autenticación de Dos Factores</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox">
+                                    Habilitar 2FA
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>IPs Permitidas</label>
+                            <textarea rows="3" placeholder="Ingrese las IPs permitidas, una por línea"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Registro de Actividad</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" checked>
+                                    Habilitar registro
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/admin.js"></script>
+</body>
+</html> 

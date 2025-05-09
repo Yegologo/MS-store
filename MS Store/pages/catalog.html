@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - MC Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Catalog Section -->
+    <main class="catalog-section">
+        <div class="catalog-container">
+            <!-- Sidebar Filters -->
+            <aside class="catalog-sidebar">
+                <div class="filter-section">
+                    <h3>Categorías</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="harinas">
+                            <span>Harinas</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="chocolates">
+                            <span>Chocolates</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="decoracion">
+                            <span>Decoración</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="category" value="moldes">
+                            <span>Moldes</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Precio</h3>
+                    <div class="price-range">
+                        <input type="range" min="0" max="1000" value="500" class="price-slider">
+                        <div class="price-inputs">
+                            <input type="number" placeholder="Mínimo" class="min-price">
+                            <span>-</span>
+                            <input type="number" placeholder="Máximo" class="max-price">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <h3>Envío</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="shipping" value="free">
+                            <span>Envío Gratis</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="shipping" value="express">
+                            <span>Envío Express</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="apply-filters">Aplicar Filtros</button>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="catalog-main">
+                <div class="catalog-header">
+                    <div class="sort-options">
+                        <span>Ordenar por:</span>
+                        <select class="sort-select">
+                            <option value="relevance">Relevancia</option>
+                            <option value="price-asc">Menor Precio</option>
+                            <option value="price-desc">Mayor Precio</option>
+                            <option value="newest">Más Nuevos</option>
+                        </select>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-btn active" data-view="grid">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="catalogProducts">
+                    <!-- Products will be loaded dynamically -->
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="page-numbers">
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <span>...</span>
+                        <button class="page-btn">10</button>
+                    </div>
+                    <button class="pagination-btn next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/header-footer.js"></script>
+    <script src="../js/catalog.js"></script>
+</body>
+</html> 

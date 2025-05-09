@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías - Panel de Administración - MC Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../../img/logo-mcstore.png" alt="MC Store Logo" class="admin-logo">
+            <h1>MC Store</h1>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html">
+                        <i class="fas fa-box"></i>
+                        Productos
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        Pedidos
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="fas fa-users"></i>
+                        Usuarios
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="categories.html">
+                        <i class="fas fa-tags"></i>
+                        Categorías
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        Configuración
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../../Inicio.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Top Header -->
+        <header class="admin-header">
+            <div class="header-search">
+                <input type="text" placeholder="Buscar categorías...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </button>
+                <div class="admin-profile">
+                    <img src="../../img/admin-avatar.png" alt="Admin">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Categories Content -->
+        <div class="dashboard-content">
+            <div class="section-header">
+                <h2>Gestión de Categorías</h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+                    <i class="fas fa-plus"></i> Nueva Categoría
+                </button>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-header">
+                        <img src="../../img/categories/harinas.jpg" alt="Harinas">
+                        <div class="category-actions">
+                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Harinas</h3>
+                        <p>Productos de harina para repostería</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-box"></i> 25 productos</span>
+                            <span><i class="fas fa-shopping-cart"></i> 156 ventas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <img src="../../img/categories/chocolates.jpg" alt="Chocolates">
+                        <div class="category-actions">
+                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Chocolates</h3>
+                        <p>Chocolates y coberturas para repostería</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-box"></i> 18 productos</span>
+                            <span><i class="fas fa-shopping-cart"></i> 98 ventas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-header">
+                        <img src="../../img/categories/moldes.jpg" alt="Moldes">
+                        <div class="category-actions">
+                            <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Moldes</h3>
+                        <p>Moldes y utensilios para repostería</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-box"></i> 32 productos</span>
+                            <span><i class="fas fa-shopping-cart"></i> 87 ventas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn-pagination"><i class="fas fa-chevron-left"></i></button>
+                <button class="btn-pagination active">1</button>
+                <button class="btn-pagination">2</button>
+                <button class="btn-pagination">3</button>
+                <button class="btn-pagination"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Category Modal -->
+    <div class="modal" id="addCategoryModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Nueva Categoría</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addCategoryForm">
+                        <div class="form-group">
+                            <label>Nombre de la Categoría</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagen de la Categoría</label>
+                            <input type="file" accept="image/*" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Estado</label>
+                            <select required>
+                                <option value="active">Activa</option>
+                                <option value="inactive">Inactiva</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="addCategoryForm" class="btn btn-primary">Crear Categoría</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/admin.js"></script>
+</body>
+</html> 

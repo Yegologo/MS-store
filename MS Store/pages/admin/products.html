@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Panel de Administración - MC Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <img src="../../img/logo-mcstore.png" alt="MC Store Logo" class="admin-logo">
+            <h1>MC Store</h1>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="products.html">
+                        <i class="fas fa-box"></i>
+                        Productos
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        Pedidos
+                    </a>
+                </li>
+                <li>
+                    <a href="users.html">
+                        <i class="fas fa-users"></i>
+                        Usuarios
+                    </a>
+                </li>
+                <li>
+                    <a href="categories.html">
+                        <i class="fas fa-tags"></i>
+                        Categorías
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        Configuración
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="../../Inicio.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                Cerrar Sesión
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Top Header -->
+        <header class="admin-header">
+            <div class="header-search">
+                <input type="text" placeholder="Buscar productos...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="header-actions">
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </button>
+                <div class="admin-profile">
+                    <img src="../../img/admin-avatar.png" alt="Admin">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Products Content -->
+        <div class="dashboard-content">
+            <div class="section-header">
+                <h2>Gestión de Productos</h2>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">
+                    <i class="fas fa-plus"></i> Nuevo Producto
+                </button>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-section">
+                <div class="filter-group">
+                    <label>Categoría:</label>
+                    <select>
+                        <option value="">Todas</option>
+                        <option value="harinas">Harinas</option>
+                        <option value="chocolates">Chocolates</option>
+                        <option value="moldes">Moldes</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Estado:</label>
+                    <select>
+                        <option value="">Todos</option>
+                        <option value="active">Activos</option>
+                        <option value="inactive">Inactivos</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Ordenar por:</label>
+                    <select>
+                        <option value="name">Nombre</option>
+                        <option value="price">Precio</option>
+                        <option value="stock">Stock</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Table -->
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td><img src="../../img/products/harina.jpg" alt="Harina Premium" class="product-thumbnail"></td>
+                            <td>Harina Premium</td>
+                            <td>Harinas</td>
+                            <td>$25.99</td>
+                            <td>150</td>
+                            <td><span class="status-badge completed">Activo</span></td>
+                            <td>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td><img src="../../img/products/chocolate.jpg" alt="Chocolate" class="product-thumbnail"></td>
+                            <td>Chocolate para Repostería</td>
+                            <td>Chocolates</td>
+                            <td>$18.99</td>
+                            <td>75</td>
+                            <td><span class="status-badge completed">Activo</span></td>
+                            <td>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#003</td>
+                            <td><img src="../../img/products/molde.jpg" alt="Molde" class="product-thumbnail"></td>
+                            <td>Molde para Cupcakes</td>
+                            <td>Moldes</td>
+                            <td>$15.99</td>
+                            <td>0</td>
+                            <td><span class="status-badge pending">Sin Stok</span></td>
+                            <td>
+                                <button class="btn-icon" title="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn-icon" title="Eliminar"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="btn-pagination"><i class="fas fa-chevron-left"></i></button>
+                <button class="btn-pagination active">1</button>
+                <button class="btn-pagination">2</button>
+                <button class="btn-pagination">3</button>
+                <button class="btn-pagination"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Product Modal -->
+    <div class="modal" id="addProductModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Agregar Nuevo Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductForm">
+                        <div class="form-group">
+                            <label>Nombre del Producto</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Categoría</label>
+                            <select required>
+                                <option value="">Seleccionar categoría</option>
+                                <option value="harinas">Harinas</option>
+                                <option value="chocolates">Chocolates</option>
+                                <option value="moldes">Moldes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Precio</label>
+                            <input type="number" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Stock</label>
+                            <input type="number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Imagen del Producto</label>
+                            <input type="file" accept="image/*" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" form="addProductForm" class="btn btn-primary">Guardar Producto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/admin.js"></script>
+</body>
+</html> 
