@@ -9,6 +9,7 @@ const applyFiltersBtn = document.querySelector('.apply-filters');
 const categoryCheckboxes = document.querySelectorAll('input[name="category"]');
 const shippingCheckboxes = document.querySelectorAll('input[name="shipping"]');
 
+
 // Sample Products Data (Replace with your actual data)
 const products = [
     {
@@ -131,7 +132,7 @@ function displayProducts(productsToShow) {
                     <i class="fas fa-shopping-cart"></i> Agregar
                 </button>
             </div>
-        </div>
+        </div>    
     `).join('');
 }
 
