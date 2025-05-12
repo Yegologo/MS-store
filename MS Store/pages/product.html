@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - MC Store</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/product.css">
+
+    <style>
+        /* Estilos adicionales para organización vertical */
+        .catalog-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .product-container img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+        }
+
+        .details {
+            flex: 1;
+        }
+
+        .section-block {
+            margin-top: 40px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        .product-description p,
+        .product-comments ul {
+            margin-top: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            resize: vertical;
+        }
+
+        #comment-list li {
+            margin: 10px 0;
+            padding: 8px;
+            background: #f3f3f3;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <div id="header-placeholder"></div>
+
+    <!-- Producto -->
+     <main class="product-section">
+        <div class="product-container">
+            <img src="https://img.uline.com/is/image/uline/S-17920?$Mobile_SI$" alt="Base dorada redonda doble listón">
+            <div class="details">
+                <h2>Base dorada redonda doble listón</h2>
+                <p class="price">$32.00</p>
+                <div class="measure">
+                    <label for="size">Medidas (cm):</label>
+                    <select id="size">
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                    </select>
+                </div>
+                <div class="buttons" style="margin-top: 15px;">
+                    <button class="button">Comprar</button>
+                    <button class="button secondary">Agregar al carrito</button>
+                </div>
+            </div>
+            
+            <!-- Descripción -->
+            <div class="section-block product-description">
+                <h3>Descripción del producto</h3>
+                <p>
+                    Esta base dorada redonda con doble listón es perfecta para decoraciones elegantes. Ideal para eventos, pasteles o como centro de mesa. Su diseño brillante y resistente la convierte en una excelente elección para diferentes tamaños de arreglos.
+                </p>
+            </div>
+
+            <!-- Comentarios -->
+            <div class="section-block product-comments">
+                <h3>Comentarios</h3>
+                <form id="comment-form">
+                    <textarea id="comment-text" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
+                    <button type="submit" class="button" style="margin-top: 10px;">Enviar comentario</button>
+                </form>
+                <ul id="comment-list"></ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Pie de página -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/header-footer.js"></script>
+    <script src="../js/catalog.js"></script>
+    <script>
+        // Comentarios
+        const form = document.getElementById('comment-form');
+        const commentList = document.getElementById('comment-list');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const text = document.getElementById('comment-text').value.trim();
+            if (text) {
+                const li = document.createElement('li');
+                li.textContent = text;
+                commentList.appendChild(li);
+                form.reset();
+            }
+        });
+    </script>
+</body>
+</html>

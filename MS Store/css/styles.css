@@ -33,7 +33,7 @@ body {
     top: 0;
     left: 0;
     height: var(--header-height);
-    z-index: 1000;
+    z-index: 800;
 }
 
 .header-container {
@@ -662,6 +662,7 @@ body {
     font-size: 0.95rem;
     line-height: 1.6;
 }
+
 
 
 @media (max-width: 768px) {
