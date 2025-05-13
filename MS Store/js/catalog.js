@@ -113,7 +113,7 @@ function setupEventListeners() {
 // Display Products
 function displayProducts(productsToShow) {
     catalogProducts.innerHTML = productsToShow.map(product => `
-        <div class="catalog-product">
+        <div class="catalog-product" onclick='verProducto(${JSON.stringify(product)})'>
             <div class="product-image">
                 <img src="${product.image}" alt="${product.name}">
             </div>
@@ -128,13 +128,20 @@ function displayProducts(productsToShow) {
                     <i class="fas fa-map-marker-alt"></i>
                     ${product.location}
                 </p>
-                <button class="add-to-cart-btn" onclick="addToCart(${product.id})">
+                <button class="add-to-cart-btn" onclick="event.stopPropagation(); addToCart(${product.id})">
                     <i class="fas fa-shopping-cart"></i> Agregar
                 </button>
             </div>
         </div>    
     `).join('');
 }
+
+//Pagina de producto
+function verProducto(producto) {
+    localStorage.setItem('productoSeleccionado', JSON.stringify(producto));
+    window.location.href = 'product.html';
+}
+
 
 // Apply Filters
 function applyFilters() {

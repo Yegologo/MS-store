@@ -18,20 +18,6 @@
     <link rel="stylesheet" href="../css/product.css">
 
     <style>
-        /* Estilos adicionales para organización vertical */
-        .catalog-section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .section-block {
-            margin-top: 40px;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
-        }
-
-        .product-description p,
         .product-comments ul {
             margin-top: 10px;
         }
@@ -57,45 +43,37 @@
     <!-- Producto -->
     <main class="product-section">
         <div class="product-container">
+          <div class="details">
             <div class="product-image">
-                <img src="https://img.uline.com/is/image/uline/S-17920?$Mobile_SI$" alt="Base dorada redonda doble listón">
+                <img src="" alt="">
             </div>
-            <div class="details">
-                <h2>Base dorada redonda doble listón</h2>
-                <p class="price">$32.00</p>
-                <div class="measure">
-                    <label for="size">Medidas (cm):</label>
-                    <select id="size">
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="35">35</option>
-                    </select>
-                </div>
+            <div class="product-datos"> 
+                <h1></h1>
+                <p class="price"></p>
                 <div class="buttons" style="margin-top: 15px;">
                     <button class="button">Comprar</button>
                     <button class="button secondary">Agregar al carrito</button>
                 </div>
             </div>
+          </div>
+              <!-- Descripción -->
+              <div class="product-description">
+                  <h3>Descripción del producto</h3>
+                  <p class="description">
+                    ${product.description ? product.description : "Descripción no disponible."}
+                  </p>
+              </div>
 
+              <!-- Comentarios -->
+              <div class="section-block product-comments">
+                  <h3>Comentarios</h3>
+                  <form id="comment-form">
+                      <textarea id="comment-text" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
+                      <button type="submit" class="button" style="margin-top: 10px;">Enviar comentario</button>
+                  </form>
+                  <ul id="comment-list"></ul>
+              </div>
             
-            <!-- Descripción -->
-            <div class="section-block product-description">
-                <h3>Descripción del producto</h3>
-                <p>
-                    Esta base dorada redonda con doble listón es perfecta para decoraciones elegantes. Ideal para eventos, pasteles o como centro de mesa. Su diseño brillante y resistente la convierte en una excelente elección para diferentes tamaños de arreglos.
-                </p>
-            </div>
-
-            <!-- Comentarios -->
-            <div class="section-block product-comments">
-                <h3>Comentarios</h3>
-                <form id="comment-form">
-                    <textarea id="comment-text" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
-                    <button type="submit" class="button" style="margin-top: 10px;">Enviar comentario</button>
-                </form>
-                <ul id="comment-list"></ul>
-            </div>
-
         </div>
     </main>
 
@@ -121,5 +99,25 @@
             }
         });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const producto = JSON.parse(localStorage.getItem('productoSeleccionado'));
+
+          if (producto) {
+              document.querySelector('.details h1').textContent = producto.name;
+              document.querySelector('.price').textContent = `$${producto.price.toFixed(2)}`;
+              document.querySelector('.product-image img').src = producto.image;
+              document.querySelector('.product-image img').alt = producto.name;
+              document.querySelector('.description').textContent = producto.description;
+              // Si usas medidas o tamaños
+              if (producto.size) {
+                  document.querySelector('#size').value = producto.size;
+              }
+          } else {
+              document.querySelector('.details').innerHTML = "<p>Producto no disponible.</p>";
+          }
+      });
+</script>
+
 </body>
 </html>

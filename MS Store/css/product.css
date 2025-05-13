@@ -31,6 +31,9 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex-wrap: wrap;
+    flex: 1;
+    min-height: 250px;
+    justify-content: space-between;
 }
 
 .product-section {
@@ -39,6 +42,7 @@ main {
     margin: 0 auto;
     padding: 20px;
     background: var(--light-color);
+    
 }
 
 .product-image {
@@ -46,9 +50,16 @@ main {
     min-height: 300px; /* Altura fija para forzar que se vea grande */
     min-width: 300px;
     overflow: hidden;
-    justify-items: center;
     align-items: center;
 }
+
+.product-datos {
+    flex: 1;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    margin-top: 50px;
+}
+
 
 .product-image img {
     width: 100%;
@@ -60,14 +71,36 @@ main {
 
 
 .details {
-    display: flex;
+
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  min-height: 80px;
+  width: 100%; /* <- asegura que ocupe todo el ancho del contenedor padre */
+  box-sizing: border-box; 
+  display: flex;
+  
+
+}
+
+
+.description {
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  min-height: 80px;
+  display: flex;
+
+}
+.product-description {
+    min-height: 150px; /* Asegura altura incluso sin texto */
+    padding: 10px 0;
+    color: #333;
+    font-size: 1rem;
     flex: 1;
-    flex-direction: column;
-    justify-content:center;
+    
 }
 
 .price {
-    font-size: 1.5em;
+    font-size: 1.7em;
     color: #333;
 }
 
@@ -93,6 +126,7 @@ select {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 17px;
 }
 
 .button.secondary {
