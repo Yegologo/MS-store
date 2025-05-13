@@ -52,7 +52,8 @@
                 <p class="price"></p>
                 <div class="buttons" style="margin-top: 15px;">
                     <button class="button">Comprar</button>
-                    <button class="button secondary">Agregar al carrito</button>
+                    <button class="button secondary add-to-cart">Agregar al carrito</button>
+                </button>
                 </div>
             </div>
           </div>
@@ -113,6 +114,10 @@
               if (producto.size) {
                   document.querySelector('#size').value = producto.size;
               }
+              document.querySelector('.add-to-cart').onclick = function (event) {
+                event.stopPropagation();
+                addToCart(producto.id); 
+              };
           } else {
               document.querySelector('.details').innerHTML = "<p>Producto no disponible.</p>";
           }
