@@ -60,7 +60,6 @@ main {
     margin-top: 50px;
 }
 
-
 .product-image img {
     width: 100%;
     height: 100%;
@@ -68,7 +67,6 @@ main {
     display: block;
     
 }
-
 
 .details {
 
@@ -81,7 +79,6 @@ main {
   
 
 }
-
 
 .description {
   overflow-wrap: break-word;

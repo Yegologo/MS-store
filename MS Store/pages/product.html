@@ -17,24 +17,6 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/product.css">
 
-    <style>
-        .product-comments ul {
-            margin-top: 10px;
-        }
-
-        textarea {
-            width: 100%;
-            padding: 10px;
-            resize: vertical;
-        }
-
-        #comment-list li {
-            margin: 10px 0;
-            padding: 8px;
-            background: #f3f3f3;
-            border-radius: 4px;
-        }
-    </style>
 </head>
 <body>
     <!-- Encabezado -->
@@ -63,16 +45,6 @@
                   <p class="description">
                     ${product.description ? product.description : "Descripción no disponible."}
                   </p>
-              </div>
-
-              <!-- Comentarios -->
-              <div class="section-block product-comments">
-                  <h3>Comentarios</h3>
-                  <form id="comment-form">
-                      <textarea id="comment-text" rows="4" placeholder="Escribe tu comentario aquí..." required></textarea>
-                      <button type="submit" class="button" style="margin-top: 10px;">Enviar comentario</button>
-                  </form>
-                  <ul id="comment-list"></ul>
               </div>
             
         </div>
