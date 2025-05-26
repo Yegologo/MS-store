@@ -1,3 +1,10 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+}
+
 .perfil-section {
     padding: 2rem;
     padding-top: calc(var(--header-height) + 2rem);
@@ -38,4 +45,8 @@
 
 .sidebar-nav li {
     margin-bottom: 0.5rem;
+}
+
+.catalog-main {
+    flex: 1;
 }
