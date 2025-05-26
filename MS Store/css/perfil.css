@@ -1,0 +1,41 @@
+.perfil-section {
+    padding: 2rem;
+    padding-top: calc(var(--header-height) + 2rem);
+    min-height: calc(100vh - var(--header-height));
+    background: var(--light-color);
+}
+
+.perfil-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+}
+
+.perfil-sidebar {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    height: fit-content;
+    width: fit-content;
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+}
+
+.opciones-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 0.5rem;
+}
