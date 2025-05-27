@@ -9,6 +9,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtener y sanitizar datos
     $nombre = trim($_POST["nombre"] ?? '');
     $email = trim($_POST["correo"] ?? '');
+    //aqui agregar el hash de la contraseña
     $pass = $_POST["password"] ?? '';
     $confirm_pass = $_POST["confirm-password"] ?? '';
     $terms = isset($_POST["terms"]) ? true : false;
