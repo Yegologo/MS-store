@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
    <!-- Include Header -->
@@ -69,32 +70,35 @@
             </form>
 
             <!-- Register Form -->
-            <form id="register-form" class="auth-form">
+            <form id="register-form" class="auth-form" method="POST" action="procesa.php">
                 <div class="form-group">
                     <label for="register-name">Nombre completo</label>
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="register-name" name="name" required>
+                        <input type="text" id="register-name" name="nombre" required minlength="3">
                     </div>
+                    <small class="error-message" id="name-error"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="register-email">Correo electrónico</label>
                     <div class="input-group">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" id="register-email" name="email" required>
+                        <input type="email" id="register-email" name="correo" required>
                     </div>
+                    <small class="error-message" id="email-error"></small>
                 </div>
 
                 <div class="form-group">
                     <label for="register-password">Contraseña</label>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="register-password" name="password" required>
+                        <input type="password" id="register-password" name="password" required minlength="6">
                         <button type="button" class="toggle-password">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    <small class="error-message" id="password-error"></small>
                 </div>
 
                 <div class="form-group">
@@ -106,13 +110,15 @@
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    <small class="error-message" id="confirm-error"></small>
                 </div>
 
                 <div class="form-options">
                     <label class="terms">
-                        <input type="checkbox" name="terms" required>
+                        <input type="checkbox" id="register-terms" name="terms" required>
                         Acepto los términos y condiciones
                     </label>
+                    <small class="error-message" id="terms-error"></small>
                 </div>
 
                 <button type="submit" class="submit-btn">Registrarse</button>
@@ -138,6 +144,117 @@
     <div id="footer-placeholder"></div>
 
     <script src="../js/header-footer.js"></script>
-    <script src="../js/login.js"></script>
+    <script>
+    $(document).ready(function() {
+        // Manejo de pestañas
+        $(".tab-btn").click(function() {
+            $(".tab-btn").removeClass("active");
+            $(this).addClass("active");
+            $(".auth-form").removeClass("active");
+            $("#" + $(this).data("form")).addClass("active");
+        });
+
+        // Mostrar/ocultar contraseña
+        $(document).on('click', '.toggle-password', function() {
+            const input = $(this).siblings("input");
+            const icon = $(this).find("i");
+            input.attr('type', input.attr('type') === 'password' ? 'text' : 'password');
+            icon.toggleClass('fa-eye fa-eye-slash');
+        });
+
+        // Validación en tiempo real
+        $('#register-name').on('input', validateName);
+        $('#register-email').on('input', validateEmail);
+        $('#register-password, #register-confirm-password').on('input', validatePasswords);
+        $('#register-terms').on('change', validateTerms);
+
+        // Envío del formulario
+        $('#register-form').on('submit', function(e) {
+            e.preventDefault();
+            
+            if(validateForm()) {
+                // Validar que las contraseñas coincidan
+                if($('#register-password').val() !== $('#register-confirm-password').val()) {
+                    $('#confirm-error').text('Las contraseñas no coinciden');
+                    return false;
+                }
+
+                // Validar términos y condiciones
+                if(!$('#register-terms').is(':checked')) {
+                    $('#terms-error').text('Debes aceptar los términos y condiciones');
+                    return false;
+                }
+
+                // Enviar formulario
+                $.ajax({
+                    url: $(this).attr('action'),
+                    type: $(this).attr('method'),
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(response) {
+                        if(response.success) {
+                            alert(response.message);
+                            $('#register-form')[0].reset();
+                            $('.error-message').text('');
+                            $(".tab-btn[data-form='login-form']").click();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        let errorMessage = 'Error de conexión. Inténtalo de nuevo.';
+                        if(xhr.responseJSON && xhr.responseJSON.message) {
+                            errorMessage = xhr.responseJSON.message;
+                        }
+                        alert(errorMessage);
+                    }
+                });
+            }
+        });
+
+        // Funciones de validación
+        function validateName() {
+            const name = $('#register-name').val().trim();
+            const isValid = name.length >= 3;
+            $('#name-error').text(isValid ? '' : 'Mínimo 3 caracteres');
+            $('#register-name').toggleClass('is-invalid', !isValid).toggleClass('is-valid', isValid);
+            return isValid;
+        }
+
+        function validateEmail() {
+            const email = $('#register-email').val().trim();
+            const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            $('#email-error').text(isValid ? '' : 'Email no válido');
+            $('#register-email').toggleClass('is-invalid', !isValid).toggleClass('is-valid', isValid);
+            return isValid;
+        }
+
+        function validatePasswords() {
+            const pass = $('#register-password').val();
+            const confirm = $('#register-confirm-password').val();
+            
+            const lengthValid = pass.length >= 6;
+            const matchValid = pass === confirm;
+            
+            $('#password-error').text(lengthValid ? '' : 'Mínimo 6 caracteres');
+            $('#confirm-error').text(matchValid ? '' : 'Las contraseñas no coinciden');
+            
+            $('#register-password').toggleClass('is-invalid', !lengthValid).toggleClass('is-valid', lengthValid);
+            $('#register-confirm-password').toggleClass('is-invalid', !matchValid).toggleClass('is-valid', matchValid);
+            
+            return lengthValid && matchValid;
+        }
+
+        function validateTerms() {
+            const isValid = $('#register-terms').is(':checked');
+            $('#terms-error').text(isValid ? '' : 'Debes aceptar los términos');
+            return isValid;
+        }
+
+        function validateForm() {
+            return validateName() && validateEmail() && validatePasswords() && validateTerms();
+        }
+    });
+    </script>
 </body>
-</html> 
+</html>
